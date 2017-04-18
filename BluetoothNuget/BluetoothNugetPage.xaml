@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:BluetoothNuget" 
+	x:Class="BluetoothNuget.BluetoothNugetPage"
+	BackgroundColor = "Black">
+	<StackLayout VerticalOptions="FillAndExpand" BackgroundColor="White">
+    	<StackLayout Orientation="Vertical" Padding="20">
+	    	<Label Text="{Binding DeviceFoundName}" FontSize="24" Margin="0,20,0,0" HorizontalTextAlignment="Start" TextColor="Blue"/>
+			<Label Text="{Binding DeviceConnected}" FontSize="18" HorizontalTextAlignment="Start" TextColor="Green"/>
+			<Label Text="{Binding DeviceFoundDistance}" FontSize="18" HorizontalTextAlignment="Start" TextColor="Gray"/>
+
+	        <Button Text="Search" Clicked="Handle_ClickedSearch" Command="{Binding SearchCommand}" IsEnabled="{Binding Path=IsSearchEnabled}" IsVisible="{Binding Path=IsSearchEnabled}" TextColor="White" BackgroundColor="Blue" />
+	        <Button Text="Connect" Clicked="Handle_ClickedConnect" Command="{Binding ConnectCommand}" IsEnabled="{Binding Path=IsConnectEnabled}" IsVisible="{Binding Path=IsConnectEnabled}" BackgroundColor="Green" />
+			<Button Text="Disconnect" Clicked="Handle_ClickedDisconnect" Command="{Binding DisconnectCommand}" IsEnabled="{Binding Path=IsDisconnectEnabled}"  IsVisible="{Binding Path=IsDisconnectEnabled}" BackgroundColor="Red" TextColor="White" />
+		</StackLayout>
+
+		<ScrollView BackgroundColor="Black">
+			<Grid Padding="20">
+				 <Grid.RowDefinitions>
+			        <RowDefinition Height="*" />
+			        <RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+			        <RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+			        <RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+			        <RowDefinition Height="*" />
+			    </Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.5*"/>
+					<ColumnDefinition Width="0.5*"/>
+				</Grid.ColumnDefinitions>
+
+				<Entry x:Name="RegisterEntry1" BackgroundColor="#303030" Grid.Column="0" Grid.Row="0" Margin="0,15,0,0" Placeholder="Register Address" Keyboard="Numeric" />
+				<Entry x:Name="NrRegistersEntry1" BackgroundColor="#303030" Grid.Column="1" Grid.Row="0" Margin="0,15,0,0" Placeholder="Nr Registers"  Keyboard="Numeric"/>
+				<Button Text="Read Coil" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,10" Grid.Row="1" Clicked="Handle_Clicked" StyleClass="Success"/>
+
+				<Entry x:Name="RegisterEntry2" BackgroundColor="#303030" Grid.Column="0" Grid.Row="2" Margin="0,15,0,0" Placeholder="Register Address" Keyboard="Numeric" />
+				<Entry x:Name="NrRegistersEntry2" BackgroundColor="#303030" Grid.Column="1" Grid.Row="2" Margin="0,15,0,0" Placeholder="Nr Registers"  Keyboard="Numeric"/>
+				<Button Text="Read Input Status" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,10" Grid.Row="3" Clicked="Handle_Clicked" StyleClass="Success"/>
+
+				<Entry x:Name="RegisterEntry3" BackgroundColor="#303030" Grid.Column="0" Grid.Row="4" Margin="0,15,0,0" Placeholder="Register Address" Keyboard="Numeric" />
+				<Entry x:Name="NrRegistersEntry3" BackgroundColor="#303030" Grid.Column="1" Grid.Row="4" Margin="0,15,0,0" Placeholder="Nr Registers"  Keyboard="Numeric"/>
+				<Button Text="Read Input Registers" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,10" Grid.Row="5" Clicked="Handle_Clicked" StyleClass="Success"/>
+
+				<Entry x:Name="RegisterEntry4" BackgroundColor="#303030" Grid.Column="0" Grid.Row="6" Margin="0,15,0,0" Placeholder="Register Address" Keyboard="Numeric" />
+				<Entry x:Name="NrRegistersEntry4" BackgroundColor="#303030" Grid.Column="1" Grid.Row="6" Margin="0,15,0,0" Placeholder="Nr Registers"  Keyboard="Numeric"/>
+				<Button Text="Read Holding Registers" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,10" Grid.Row="7" Clicked="Handle_Clicked" StyleClass="Success"/>
+
+				<Entry x:Name="RegisterEntry5" BackgroundColor="#303030" Grid.Column="0" Grid.Row="8" Margin="0,15,0,0" Placeholder="Register Address" Keyboard="Numeric" />
+				<Entry x:Name="DataEntry1" BackgroundColor="#303030" Grid.Column="1" Grid.Row="8" Margin="0,15,0,0" Placeholder="Input Data"  Keyboard="Numeric"/>
+				<Button Text="Write Coil" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,10" Grid.Row="9" Clicked="Handle_Clicked" StyleClass="Success"/>
+
+				<Entry x:Name="RegisterEntry6" BackgroundColor="#303030" Grid.Column="0" Grid.Row="10" Margin="0,15,0,0" Placeholder="Register Address" Keyboard="Numeric" />
+				<Entry x:Name="DataEntry2" BackgroundColor="#303030" Grid.Column="1" Grid.Row="10" Margin="0,15,0,0" Placeholder="Input Data"  Keyboard="Numeric"/>
+				<Button Text="Write Holding Registers" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,10" Grid.Row="11" Clicked="Handle_Clicked" StyleClass="Success"/>
+			</Grid>
+		</ScrollView>
+    </StackLayout>
+</ContentPage>
